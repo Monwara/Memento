@@ -61,9 +61,11 @@
     } else {
       var cookies = document.cookie.split(';');
       var cookie = def;
+      var item;
+      var c;
       for (var i = 0, l = cookies.length; i < l; i++) {
-        var item = cookies[i];
-        var c = item.split('=');
+        item = cookies[i];
+        c = item.split('=');
         if (c[0] === key) {
           cookie = c[1].replace(/^\s+/, '').replace(/\s+$/, '');
         }

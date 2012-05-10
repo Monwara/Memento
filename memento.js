@@ -1,7 +1,7 @@
 /**
  * Cookie and localstorage abstraction
  *
- * @author Monwara LLC / Branko Vukelic <branko@herdhound.com>
+ * @author Monwara LLC / Branko Vukelic <branko@monwara.com>
  * @version 0.0.1
  */
 

@@ -63,7 +63,7 @@ for eternity.
 License
 -------
 
-Copyright (c)2012 by Monwara LLC / Branko Vukelic <branko@herdhound.com>
+Copyright (c)2012 by Monwara LLC / Branko Vukelic <branko@monwara.com>
 All rights reserved.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of

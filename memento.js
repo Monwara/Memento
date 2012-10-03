@@ -34,6 +34,11 @@
     }
 
     key = '_memento_' + key;
+    try {
+      value = JSON.stringify(value);
+    } catch (strErr) {
+      value = '';
+    }
 
     console.debug('[' + 
                   (HAS_LOCALSTORAGE ? 'lstore' : 'cookie') +
@@ -56,11 +61,15 @@
     key = '_memento_' + key;
 
     if (HAS_LOCALSTORAGE) {
-      return typeof window.localStorage[key] !== 'undefined' ? 
-        window.localStorage[key] : def;
+      try {
+        return typeof window.localStorage[key] !== 'undefined' ? 
+          JSON.parse(window.localStorage[key]) : def;
+      } catch (parseErr) {
+        return def;
+      }
     } else {
       var cookies = document.cookie.split(';');
-      var cookie = def;
+      var cookie;
       var item;
       var c;
       for (var i = 0, l = cookies.length; i < l; i++) {
@@ -70,7 +79,12 @@
           cookie = c[1].replace(/^\s+/, '').replace(/\s+$/, '');
         }
       }
-      return cookie;
+      if (!cooke) { return def; }
+      try {
+        return JSON.parse(cookie);
+      } catch (parseErr) {
+        return def;
+      }
     }
   };
 
